@@ -7,6 +7,7 @@ import Header from "./components/Header";
 
 import ArtistList from "./containers/ArtistList";
 import AlbumList from "./containers/AlbumList";
+import TrackList from "./containers/TrackList";
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
               <Route path="/album">
                 <AlbumList />
               </Route>
-              <Route path="/track"></Route>
+              <Route path="/track">
+                <TrackList />
+              </Route>
             </Switch>
           </div>
         </main>

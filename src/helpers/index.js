@@ -34,3 +34,10 @@ export function buildAvailability(availableMarkets = []) {
     ? "Available in Brazil"
     : "Unavailable in Brazil";
 }
+
+export function buildDuration(ms = 0) {
+  const min = (ms / 1000 / 60) << 0;
+  const sec = (ms / 1000) % 60 << 0;
+
+  return `${min}:${sec}`;
+}
