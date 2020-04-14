@@ -6,7 +6,7 @@ import Table from "../components/Table";
 
 import { buildImageSrc, buildGenresList, buildPopularity } from "../helpers";
 
-function ArtistList() {
+export default function ArtistList() {
   const artists = [];
 
   return (
@@ -34,5 +34,3 @@ function ArtistList() {
     </Container>
   );
 }
-
-export default ArtistList;

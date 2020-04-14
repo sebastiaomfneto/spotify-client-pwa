@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Container.scss";
 
-function Container({ title, subtitle, children }) {
+export default function Container({ title, subtitle, children }) {
   return (
     <div className="Container">
       <h1>{title}</h1>
@@ -11,5 +11,3 @@ function Container({ title, subtitle, children }) {
     </div>
   );
 }
-
-export default Container;

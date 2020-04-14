@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Table.scss";
 
-function Table({ columns = [], children }) {
+export default function Table({ columns = [], children }) {
   return (
     <div className="Table">
       <table>
@@ -18,5 +18,3 @@ function Table({ columns = [], children }) {
     </div>
   );
 }
-
-export default Table;

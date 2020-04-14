@@ -4,7 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import "./Header.scss";
 
-function Header() {
+export default function Header() {
   return (
     <header className="Header">
       <form>
@@ -19,5 +19,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

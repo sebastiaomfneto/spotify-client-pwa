@@ -6,7 +6,7 @@ import Table from "../components/Table";
 
 import { buildImageSrc, buildArtist, buildAvailability } from "../helpers";
 
-function AlbumList() {
+export default function AlbumList() {
   const albums = [];
 
   return (
@@ -34,5 +34,3 @@ function AlbumList() {
     </Container>
   );
 }
-
-export default AlbumList;

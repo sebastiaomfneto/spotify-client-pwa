@@ -9,7 +9,7 @@ import ArtistList from "./containers/ArtistList";
 import AlbumList from "./containers/AlbumList";
 import TrackList from "./containers/TrackList";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
@@ -37,5 +37,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

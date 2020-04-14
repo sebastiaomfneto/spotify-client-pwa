@@ -7,7 +7,7 @@ const NavLinkWithActiveClassName = (props) => (
   <NavLink activeClassName="active" {...props} />
 );
 
-function Nav() {
+export default function Nav() {
   return (
     <nav className="Nav">
       <h2>Browse</h2>
@@ -19,5 +19,3 @@ function Nav() {
     </nav>
   );
 }
-
-export default Nav;
