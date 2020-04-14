@@ -24,10 +24,10 @@ export default function App() {
               <Route path="/artists">
                 <ArtistList />
               </Route>
-              <Route path="/album">
+              <Route path="/albums">
                 <AlbumList />
               </Route>
-              <Route path="/track">
+              <Route path="/tracks">
                 <TrackList />
               </Route>
             </Switch>

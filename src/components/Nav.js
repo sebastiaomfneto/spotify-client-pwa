@@ -14,8 +14,8 @@ export default function Nav() {
       <NavLinkWithActiveClassName to="/artists">
         Artists
       </NavLinkWithActiveClassName>
-      <NavLinkWithActiveClassName to="/album">Album</NavLinkWithActiveClassName>
-      <NavLinkWithActiveClassName to="/track">Track</NavLinkWithActiveClassName>
+      <NavLinkWithActiveClassName to="/albums">Album</NavLinkWithActiveClassName>
+      <NavLinkWithActiveClassName to="/tracks">Track</NavLinkWithActiveClassName>
     </nav>
   );
 }
