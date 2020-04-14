@@ -1,0 +1,40 @@
+.Table {
+  overflow-y: auto;
+
+  > table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    thead tr {
+      line-height: 2.5rem;
+      th {
+        padding: 0 0.5rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #b3b3b3;
+      }
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #666;
+      line-height: 2.5rem;
+      font-size: 0.85rem;
+      &:hover {
+        background-color: #333333;
+      }
+
+      td {
+        padding: 0 0.5rem;
+        text-align: center;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
