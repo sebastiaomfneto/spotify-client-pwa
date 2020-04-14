@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./Container.scss";
+import "./Layout.scss";
 
-export default function Container({ imageSrc, title, subtitle, children }) {
+export default function Layout({ imageSrc, title, subtitle, children }) {
   return (
-    <div className="Container">
+    <div className="Layout">
       <div>
         {imageSrc ? (
           <img src={imageSrc} alt="container" width="150px" height="150px" />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import Container from "../components/Container";
+import Layout from "../components/Layout";
 import ArtistTable from "../components/ArtistTable";
 
 import { getArtists } from "../services/SpotifyService";
@@ -13,8 +13,8 @@ export default function ArtistList() {
   });
 
   return (
-    <Container title="Artists">
+    <Layout title="Artists">
       <ArtistTable artists={artists} />
-    </Container>
+    </Layout>
   );
 }

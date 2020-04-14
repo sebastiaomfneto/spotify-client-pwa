@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import Container from "../components/Container";
+import Layout from "../components/Layout";
 import AlbumTable from "../components/AlbumTable";
 
 import { getAlbums } from "../services/SpotifyService";
@@ -13,8 +13,8 @@ export default function AlbumList() {
   });
 
   return (
-    <Container title="Albums">
+    <Layout title="Albums">
       <AlbumTable albums={albums} />
-    </Container>
+    </Layout>
   );
 }

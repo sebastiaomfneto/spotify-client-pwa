@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { buildImageSrc } from "../helpers";
 
-import Container from "../components/Container";
+import Layout from "../components/Layout";
 import TrackTable from "../components/TrackTable";
 
 import { getAlbumTracks } from "../services/SpotifyService";
@@ -18,12 +18,12 @@ export default function AlbumItem() {
   getAlbumTracks(album.id).then((tracks) => setTracks(tracks));
 
   return (
-    <Container
+    <Layout
       title={album.name}
       subtitle="Tracks"
       imageSrc={buildImageSrc(album.images)}
     >
       <TrackTable tracks={tracks} />
-    </Container>
+    </Layout>
   );
 }

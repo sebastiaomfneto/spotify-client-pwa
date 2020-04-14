@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import Container from "../components/Container";
+import Layout from "../components/Layout";
 import TrackTable from "../components/TrackTable";
 
 import { getTracks } from "../services/SpotifyService";
@@ -13,8 +13,8 @@ export default function TrackList() {
   });
 
   return (
-    <Container title="Tracks">
+    <Layout title="Tracks">
       <TrackTable tracks={tracks} />
-    </Container>
+    </Layout>
   );
 }
