@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  padding: 1.25rem;
+  overflow-y: auto;
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
+
+  h2 {
+    padding-bottom: 0.35rem;
+    font-weight: 300;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  a {
+    font-size: 0.85rem;
+    color: #b3b3b3;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    line-height: 1.75rem;
+    white-space: nowrap;
+    &:hover {
+      color: #fff;
+    }
+  }
+}

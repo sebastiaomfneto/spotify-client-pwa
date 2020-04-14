@@ -1,0 +1,28 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 768px) {
+    position: fixed;
+    justify-content: start;
+    padding-top: 0.65rem;
+  }
+  form {
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 12.5rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.85rem;
+      background-color: #fff;
+      border-radius: 1rem;
+      svg {
+        color: #b3b3b3;
+      }
+      input[type="search"] {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
