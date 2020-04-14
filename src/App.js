@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 
 import ArtistList from "./containers/ArtistList";
+import AlbumList from "./containers/AlbumList";
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
               <Route path="/artists">
                 <ArtistList />
               </Route>
-              <Route path="/album"></Route>
+              <Route path="/album">
+                <AlbumList />
+              </Route>
               <Route path="/track"></Route>
             </Switch>
           </div>

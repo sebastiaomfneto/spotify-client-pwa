@@ -20,3 +20,17 @@ export function buildPopularity(followers = 0) {
       return "";
   }
 }
+
+export function buildArtist(artists = []) {
+  if (artists.length > 1) {
+    return "Various artists";
+  }
+
+  return artists[0]?.name;
+}
+
+export function buildAvailability(availableMarkets = []) {
+  return availableMarkets.includes("BR")
+    ? "Available in Brazil"
+    : "Unavailable in Brazil";
+}
