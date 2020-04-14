@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 
 import ArtistList from "./containers/ArtistList";
+import AlbumItem from "./containers/AlbumItem";
 import AlbumList from "./containers/AlbumList";
 import TrackList from "./containers/TrackList";
 
@@ -23,6 +24,9 @@ export default function App() {
               <Redirect exact from="/" to="/artists" />
               <Route path="/artists">
                 <ArtistList />
+              </Route>
+              <Route path="/albums/:id">
+                <AlbumItem />
               </Route>
               <Route path="/albums">
                 <AlbumList />

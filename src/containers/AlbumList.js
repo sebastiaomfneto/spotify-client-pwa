@@ -24,7 +24,14 @@ export default function AlbumList() {
               />
             </td>
             <td>
-              <Link to={`/albums/${album.id}`}>{album.name}</Link>
+              <Link
+                to={{
+                  pathname: `/albums/${album.id}`,
+                  state: { album },
+                }}
+              >
+                {album.name}
+              </Link>
             </td>
             <td>{buildArtist(album.artists)}</td>
             <td>{buildAvailability(album.available_markets)}</td>
