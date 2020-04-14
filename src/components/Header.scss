@@ -1,4 +1,4 @@
-header {
+.Header {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -7,8 +7,8 @@ header {
     justify-content: start;
     padding-top: 0.65rem;
   }
-  form {
-    label {
+  > form {
+    > label {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -16,10 +16,10 @@ header {
       padding: 0.5rem 0.5rem 0.5rem 0.85rem;
       background-color: #fff;
       border-radius: 1rem;
-      svg {
+      > svg {
         color: #b3b3b3;
       }
-      input[type="search"] {
+      > input[type="search"] {
         border: none;
         outline: none;
       }

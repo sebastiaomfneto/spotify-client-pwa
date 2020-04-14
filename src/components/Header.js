@@ -6,7 +6,7 @@ import "./Header.scss";
 
 function Header() {
   return (
-    <header>
+    <header className="Header">
       <form>
         <label>
           <FontAwesomeIcon icon={faSearch} />
