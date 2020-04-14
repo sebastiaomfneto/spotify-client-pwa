@@ -9,7 +9,7 @@ const NavLinkWithActiveClassName = (props) => (
 
 function Nav() {
   return (
-    <nav>
+    <nav className="Nav">
       <h2>Browse</h2>
       <NavLinkWithActiveClassName to="/artists">
         Artists

@@ -1,4 +1,4 @@
-nav {
+.Nav {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -10,7 +10,7 @@ nav {
     flex-direction: column;
   }
 
-  h2 {
+  > h2 {
     padding-bottom: 0.35rem;
     font-weight: 300;
     font-size: 0.85rem;
@@ -18,7 +18,7 @@ nav {
     letter-spacing: 1px;
   }
 
-  a {
+  > a {
     font-size: 0.85rem;
     color: #b3b3b3;
     text-decoration: none;
