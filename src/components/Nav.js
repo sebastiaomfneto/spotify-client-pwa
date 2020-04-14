@@ -1,14 +1,21 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./Nav.scss";
+
+const NavLinkWithActiveClassName = (props) => (
+  <NavLink activeClassName="active" {...props} />
+);
 
 function Nav() {
   return (
     <nav>
       <h2>Browse</h2>
-      <a href="#/artists">Artists</a>
-      <a href="#/album">Album</a>
-      <a href="#/track">Track</a>
+      <NavLinkWithActiveClassName to="/artists">
+        Artists
+      </NavLinkWithActiveClassName>
+      <NavLinkWithActiveClassName to="/album">Album</NavLinkWithActiveClassName>
+      <NavLinkWithActiveClassName to="/track">Track</NavLinkWithActiveClassName>
     </nav>
   );
 }

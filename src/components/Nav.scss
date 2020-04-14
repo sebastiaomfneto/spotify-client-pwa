@@ -28,5 +28,17 @@ nav {
     &:hover {
       color: #fff;
     }
+    &.active {
+      &::before {
+        content: "";
+        position: relative;
+        left: -1.125rem;
+        border-left: 0.15rem solid #1db954;
+      }
+
+      @media (min-width: 768px) {
+        width: 8.75rem;
+      }
+    }
   }
 }
