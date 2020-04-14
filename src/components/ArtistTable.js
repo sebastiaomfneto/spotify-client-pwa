@@ -5,7 +5,7 @@ import Table from "../components/Table";
 
 import { buildImageSrc, buildGenresList, buildPopularity } from "../helpers";
 
-export default function ArtistTable({ artists }) {
+export default function ArtistTable({ artists = [] }) {
   return (
     <Table columns={["", "Image", "Name", "Genres", "Popularity"]}>
       {artists.map((artist) => (
