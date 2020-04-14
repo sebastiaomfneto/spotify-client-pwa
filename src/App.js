@@ -1,10 +1,16 @@
 import React from "react";
-import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+} from "react-router-dom";
 import "./App.scss";
 
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 
+import ArtistItem from "./containers/ArtistItem";
 import ArtistList from "./containers/ArtistList";
 import AlbumItem from "./containers/AlbumItem";
 import AlbumList from "./containers/AlbumList";
@@ -12,7 +18,7 @@ import TrackList from "./containers/TrackList";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <div className="nav-section">
           <Nav />
@@ -22,6 +28,9 @@ export default function App() {
           <div className="container">
             <Switch>
               <Redirect exact from="/" to="/artists" />
+              <Route path="/artists/:id">
+                <ArtistItem />
+              </Route>
               <Route path="/artists">
                 <ArtistList />
               </Route>
@@ -38,6 +47,6 @@ export default function App() {
           </div>
         </main>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
