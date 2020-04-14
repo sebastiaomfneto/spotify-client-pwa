@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 
 import "./Table.scss";
 
@@ -13,7 +13,15 @@ export default function Table({ columns = [], children }) {
             ))}
           </tr>
         </thead>
-        <tbody>{children}</tbody>
+        <tbody>
+          {Children.count(children) > 0 ? (
+            children
+          ) : (
+            <tr>
+              <td colSpan={columns.length}>there are no records to display</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </div>
   );

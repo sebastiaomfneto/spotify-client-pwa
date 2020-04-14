@@ -1,8 +1,16 @@
 import React from "react";
 
+import Loading from "./Loading";
+
 import "./Layout.scss";
 
-export default function Layout({ imageSrc, title, subtitle, children }) {
+export default function Layout({
+  imageSrc,
+  title,
+  subtitle,
+  children,
+  loading,
+}) {
   return (
     <div className="Layout">
       <div>
@@ -12,7 +20,7 @@ export default function Layout({ imageSrc, title, subtitle, children }) {
         <h1>{title}</h1>
       </div>
       {subtitle ? <h2>{subtitle}</h2> : null}
-      {children}
+      {loading ? <Loading loading={loading} /> : children}
     </div>
   );
 }
