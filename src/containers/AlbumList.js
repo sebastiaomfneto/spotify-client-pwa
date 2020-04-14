@@ -10,7 +10,7 @@ export default function AlbumList() {
 
   useEffect(() => {
     getAlbums().then((albums) => setAlbums(albums));
-  });
+  }, []);
 
   return (
     <Layout title="Albums">

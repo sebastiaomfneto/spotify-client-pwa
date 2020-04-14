@@ -10,7 +10,7 @@ export default function TrackList() {
 
   useEffect(() => {
     getTracks().then((tracks) => setTracks(tracks));
-  });
+  }, []);
 
   return (
     <Layout title="Tracks">

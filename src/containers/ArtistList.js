@@ -10,7 +10,7 @@ export default function ArtistList() {
 
   useEffect(() => {
     getArtists().then((artists) => setArtists(artists));
-  });
+  }, []);
 
   return (
     <Layout title="Artists">
