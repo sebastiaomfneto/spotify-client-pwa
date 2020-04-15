@@ -10,6 +10,7 @@ import "./App.scss";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 
+import Signin from "./containers/Signin";
 import ArtistItem from "./containers/ArtistItem";
 import ArtistList from "./containers/ArtistList";
 import AlbumItem from "./containers/AlbumItem";
@@ -28,6 +29,9 @@ export default function App() {
           <div className="container">
             <Switch>
               <Redirect exact from="/" to="/artists" />
+              <Route path="/signin">
+                <Signin />
+              </Route>
               <Route path="/artists/:id">
                 <ArtistItem />
               </Route>

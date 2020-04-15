@@ -1,0 +1,25 @@
+.Signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+    fill: #1db954;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    background-color: #1db954;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #fff;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+}
