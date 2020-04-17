@@ -1,20 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Layout from "../components/Layout";
 import AlbumTable from "../components/AlbumTable";
 
+import SearchContext from "../contexts/SearchContext";
+
 import SpotifyService from "../services/SpotifyService";
 
 export default function AlbumList() {
-  const [loading, setLoading] = useState(true);
+  const { search } = useContext(SearchContext);
+
+  const [loading, setLoading] = useState(false);
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    new SpotifyService()
-      .getAlbums()
-      .then((albums) => setAlbums(albums))
-      .finally(() => setLoading(false));
-  }, []);
+    if (search) {
+      setLoading(true);
+
+      new SpotifyService()
+        .getAlbums(search)
+        .then((albums) => setAlbums(albums))
+        .finally(() => setLoading(false));
+    } else {
+      setAlbums([]);
+    }
+  }, [search]);
 
   return (
     <Layout title="Albums" loading={loading}>

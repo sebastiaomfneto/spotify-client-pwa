@@ -1,20 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Layout from "../components/Layout";
 import TrackTable from "../components/TrackTable";
 
+import SearchContext from "../contexts/SearchContext";
+
 import SpotifyService from "../services/SpotifyService";
 
 export default function TrackList() {
-  const [loading, setLoading] = useState(true);
+  const { search } = useContext(SearchContext);
+
+  const [loading, setLoading] = useState(false);
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    new SpotifyService()
-      .getTracks()
-      .then((tracks) => setTracks(tracks))
-      .finally(() => setLoading(false));
-  }, []);
+    if (search) {
+      setLoading(true);
+
+      new SpotifyService()
+        .getTracks(search)
+        .then((tracks) => setTracks(tracks))
+        .finally(() => setLoading(false));
+    } else {
+      setTracks([]);
+    }
+  }, [search]);
 
   return (
     <Layout title="Tracks" loading={loading}>

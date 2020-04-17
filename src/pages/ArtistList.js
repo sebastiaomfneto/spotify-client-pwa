@@ -1,20 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Layout from "../components/Layout";
 import ArtistTable from "../components/ArtistTable";
 
+import SearchContext from "../contexts/SearchContext";
+
 import SpotifyService from "../services/SpotifyService";
 
 export default function ArtistList() {
-  const [loading, setLoading] = useState(true);
+  const { search } = useContext(SearchContext);
+
+  const [loading, setLoading] = useState(false);
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    new SpotifyService()
-      .getArtists()
-      .then((artists) => setArtists(artists))
-      .finally(() => setLoading(false));
-  }, []);
+    if (search) {
+      setLoading(true);
+
+      new SpotifyService()
+        .getArtists(search)
+        .then((artists) => setArtists(artists))
+        .finally(() => setLoading(false));
+    } else {
+      setArtists([]);
+    }
+  }, [search]);
 
   return (
     <Layout title="Artists" loading={loading}>
