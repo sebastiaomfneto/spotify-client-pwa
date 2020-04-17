@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { Switch, Redirect, Route } from "react-router-dom";
+
+import AuthenticationContext from "./contexts/AuthenticationContext";
 
 import Signin from "./pages/Signin";
 import ArtistItem from "./pages/ArtistItem";
@@ -7,6 +9,23 @@ import ArtistList from "./pages/ArtistList";
 import AlbumItem from "./pages/AlbumItem";
 import AlbumList from "./pages/AlbumList";
 import TrackList from "./pages/TrackList";
+
+function AuthenticatedRoute({ children, ...params }) {
+  const { isAuthenticated } = useContext(AuthenticationContext);
+
+  return (
+    <Route
+      {...params}
+      render={() => {
+        if (isAuthenticated) {
+          return children;
+        }
+
+        return <Redirect to="/signin" />;
+      }}
+    />
+  );
+}
 
 export default function Routes() {
   return (
@@ -18,18 +37,18 @@ export default function Routes() {
       <Route path="/artists/:id">
         <ArtistItem />
       </Route>
-      <Route path="/artists">
+      <AuthenticatedRoute path="/artists">
         <ArtistList />
-      </Route>
-      <Route path="/albums/:id">
+      </AuthenticatedRoute>
+      <AuthenticatedRoute path="/albums/:id">
         <AlbumItem />
-      </Route>
-      <Route path="/albums">
+      </AuthenticatedRoute>
+      <AuthenticatedRoute path="/albums">
         <AlbumList />
-      </Route>
-      <Route path="/tracks">
+      </AuthenticatedRoute>
+      <AuthenticatedRoute path="/tracks">
         <TrackList />
-      </Route>
+      </AuthenticatedRoute>
     </Switch>
   );
 }

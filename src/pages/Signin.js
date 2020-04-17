@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
 import "./Signin.scss";
@@ -6,8 +6,10 @@ import "./Signin.scss";
 import Layout from "../components/Layout";
 import Logo from "../components/Logo";
 
+import AuthenticationContext from "../contexts/AuthenticationContext";
+
 const {
-  CURRENT_URL = window.location.href,
+  CURRENT_URL = window.location.origin + "/signin",
   CLIENT_ID = "63414da0d30c45cfb234e64103619981",
 } = process.env;
 
@@ -23,18 +25,22 @@ function getTokenFromHash(hash = "") {
     .reduce((ag, [k, v]) => ({ ...ag, [k]: v }), {});
 }
 
-
 export default function Signin() {
   const history = useHistory();
   const { hash } = useLocation();
+  const { setToken } = useContext(AuthenticationContext);
 
   useEffect(() => {
     if (hash) {
-      getTokenFromHash(hash);
+      const token = getTokenFromHash(hash);
 
-      history.push("/artists");
+      setToken(token);
+
+      setTimeout(() => {
+        history.push("/artists");
+      });
     }
-  }, [hash, history]);
+  }, [hash, setToken, history]);
 
   return (
     <Layout title="Signin">
