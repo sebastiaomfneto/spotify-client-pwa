@@ -1,13 +1,11 @@
 import { getItem } from "./StorageService";
 
 export default class SpotifyService {
-  headers = new Headers();
-
-  constructor() {
-    this.headers.append("Content-Type", "application/json");
-    this.headers.append("Accept", "application/json");
-    this.headers.append("Authorization", this._getAuthorizationToken());
-  }
+  headers = new Headers({
+    Authorization: this._getAuthorizationToken(),
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  });
 
   getAlbums(term) {
     //const url = new URL("https://api.spotify.com/v1/search");
