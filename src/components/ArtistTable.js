@@ -20,7 +20,14 @@ export default function ArtistTable({ artists = [] }) {
             />
           </td>
           <td>
-            <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
+            <Link
+              to={{
+                pathname: `/artists/${artist.id}`,
+                state: { artist },
+              }}
+            >
+              {artist.name}
+            </Link>
           </td>
           <td>{buildGenresList(artist.genres)}</td>
           <td>{buildPopularity(artist.followers.total)}</td>
