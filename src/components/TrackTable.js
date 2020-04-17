@@ -3,11 +3,26 @@ import React from "react";
 import Table from "../components/Table";
 import FavoriteButton from "../components/FavoriteButton";
 
-import { buildImageSrc, buildArtist, buildDuration } from "../helpers";
+import { buildImageSrc } from "../helpers";
+
+export function buildArtist(artists = []) {
+  return artists.map((a) => a.name).join(", ");
+}
+
+export function buildDuration(ms = 0) {
+  const min = (ms / 1000 / 60) << 0;
+  let sec = (ms / 1000) % 60 << 0;
+
+  if (sec < 10) {
+    sec = sec.toString() + "0";
+  }
+
+  return `${min}:${sec}`;
+}
 
 export default function TrackTable({ album, tracks = [] }) {
   return (
-    <Table columns={["", "Image", "Name", "Artist", "Album", "Duration"]}>
+    <Table columns={["", "Album Image", "Name", "Artist", "Album", "Duration"]}>
       {tracks.map((track) => (
         <tr key={track.id}>
           <td>

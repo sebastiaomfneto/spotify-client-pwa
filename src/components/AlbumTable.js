@@ -4,7 +4,21 @@ import { Link } from "react-router-dom";
 import Table from "../components/Table";
 import FavoriteButton from "../components/FavoriteButton";
 
-import { buildImageSrc, buildArtist, buildAvailability } from "../helpers";
+import { buildImageSrc } from "../helpers";
+
+export function buildArtist(artists = []) {
+  if (artists.length > 1) {
+    return "Various artists";
+  }
+
+  return artists[0]?.name;
+}
+
+export function buildAvailability(availableMarkets = []) {
+  return availableMarkets.includes("BR")
+    ? "Available in Brazil"
+    : "Unavailable in Brazil";
+}
 
 export default function AlbumTable({ albums = [] }) {
   return (
