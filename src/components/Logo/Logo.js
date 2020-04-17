@@ -4,7 +4,7 @@ import "./Logo.scss";
 
 export function Logo() {
   return (
-    <div className="Logo">
+    <div className="Logo" data-testid="logo">
       <svg
         version="1.1"
         id="Capa_1"
