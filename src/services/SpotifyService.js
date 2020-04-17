@@ -1,9 +1,12 @@
+import { getItem } from "./StorageService";
+
 export default class SpotifyService {
   headers = new Headers();
 
   constructor() {
     this.headers.append("Content-Type", "application/json");
     this.headers.append("Accept", "application/json");
+    this.headers.append("Authorization", this._getAuthorizationToken());
   }
 
   getAlbums(term) {
