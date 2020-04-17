@@ -10,8 +10,8 @@ import Routes from "./Routes";
 
 export default function App() {
   return (
-    <Providers>
-      <Router>
+    <Router>
+      <Providers>
         <div className="App">
           <div className="nav-section">
             <Nav />
@@ -23,7 +23,7 @@ export default function App() {
             </div>
           </main>
         </div>
-      </Router>
-    </Providers>
+      </Providers>
+    </Router>
   );
 }
