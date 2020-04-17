@@ -19,9 +19,7 @@ export default function TrackTable({ tracks = [] }) {
               height="20px"
             />
           </td>
-          <td>
-            <Link to={`/tracks/${track.id}`}>{track.name}</Link>
-          </td>
+          <td>{track.name}</td>
           <td>{buildArtist(track.artists)}</td>
           <td>{track.album?.name}</td>
           <td>{buildDuration(track.duration_ms)}</td>
