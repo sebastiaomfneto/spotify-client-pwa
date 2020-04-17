@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
-import { buildImageSrc } from "../helpers";
+import { buildImageSrc } from "../../helpers";
 
-import { Layout } from "../components/Layout";
-import { TrackTable } from "../components/Table";
+import { Layout } from "../../components/Layout";
+import { TrackTable } from "../../components/Table";
 
-import { SpotifyService } from "../services/SpotifyService";
+import { SpotifyService } from "../../services/SpotifyService";
 
-export default function AlbumItem() {
+export function AlbumItem() {
   const {
     state: { album },
   } = useLocation();

@@ -3,12 +3,10 @@ import { Switch, Redirect, Route } from "react-router-dom";
 
 import { AuthenticationContext } from "./contexts/AuthenticationContext";
 
-import Signin from "./pages/Signin";
-import ArtistItem from "./pages/ArtistItem";
-import ArtistList from "./pages/ArtistList";
-import AlbumItem from "./pages/AlbumItem";
-import AlbumList from "./pages/AlbumList";
-import TrackList from "./pages/TrackList";
+import { Signin } from "./pages/Signin";
+import { ArtistItem, ArtistList } from "./pages/Artist";
+import { AlbumItem, AlbumList } from "./pages/Album";
+import { TrackList } from "./pages/Track";
 
 function AuthenticatedRoute({ children, ...params }) {
   const { isAuthenticated } = useContext(AuthenticationContext);

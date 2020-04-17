@@ -3,10 +3,10 @@ import { useLocation, useHistory } from "react-router-dom";
 
 import "./Signin.scss";
 
-import { Layout } from "../components/Layout";
-import { Logo } from "../components/Logo";
+import { Layout } from "../../components/Layout";
+import { Logo } from "../../components/Logo";
 
-import { AuthenticationContext } from "../contexts/AuthenticationContext";
+import { AuthenticationContext } from "../../contexts/AuthenticationContext";
 
 const {
   CURRENT_URL = window.location.origin + "/signin",
@@ -25,7 +25,7 @@ function getTokenFromHash(hash = "") {
     .reduce((ag, [k, v]) => ({ ...ag, [k]: v }), {});
 }
 
-export default function Signin() {
+export function Signin() {
   const history = useHistory();
   const { hash } = useLocation();
   const { setToken } = useContext(AuthenticationContext);

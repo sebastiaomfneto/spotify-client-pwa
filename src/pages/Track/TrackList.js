@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import { Layout } from "../components/Layout";
-import { TrackTable } from "../components/Table";
+import { Layout } from "../../components/Layout";
+import { TrackTable } from "../../components/Table";
 
-import { SearchContext } from "../contexts/SearchContext";
+import { SearchContext } from "../../contexts/SearchContext";
 
-import { SpotifyService } from "../services/SpotifyService";
+import { SpotifyService } from "../../services/SpotifyService";
 
-export default function TrackList() {
+export function TrackList() {
   const { search } = useContext(SearchContext);
 
   const [loading, setLoading] = useState(false);
