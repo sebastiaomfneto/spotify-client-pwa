@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Router>
       <Providers>
-        <div className="App">
+        <div className="App" data-testid="app">
           <div className="nav-section">
             <Nav />
           </div>
