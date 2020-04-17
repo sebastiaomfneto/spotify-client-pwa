@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 import { buildImageSrc } from "../helpers";
 
@@ -13,11 +13,15 @@ export default function ArtistItem() {
     state: { artist },
   } = useLocation();
 
+  const { id } = useParams();
+
   const [albums, setAlbumns] = useState([]);
 
-  new SpotifyService()
-    .getArtistAlbums(artist.id)
-    .then((albums) => setAlbumns(albums));
+  useEffect(() => {
+    new SpotifyService()
+      .getArtistAlbums(id)
+      .then((albums) => setAlbumns(albums));
+  }, [id]);
 
   return (
     <Layout

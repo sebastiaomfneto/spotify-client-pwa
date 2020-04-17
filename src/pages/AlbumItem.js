@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 import { buildImageSrc } from "../helpers";
 
@@ -13,11 +13,13 @@ export default function AlbumItem() {
     state: { album },
   } = useLocation();
 
+  const { id } = useParams();
+
   const [tracks, setTracks] = useState([]);
 
-  new SpotifyService()
-    .getAlbumTracks(album.id)
-    .then((tracks) => setTracks(tracks));
+  useEffect(() => {
+    new SpotifyService().getAlbumTracks(id).then((tracks) => setTracks(tracks));
+  }, [id]);
 
   return (
     <Layout
@@ -25,7 +27,7 @@ export default function AlbumItem() {
       subtitle="Tracks"
       imageSrc={buildImageSrc(album.images)}
     >
-      <TrackTable tracks={tracks} />
+      <TrackTable album={album} tracks={tracks} />
     </Layout>
   );
 }
