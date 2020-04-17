@@ -8,8 +8,7 @@ export default class SpotifyService {
   });
 
   getAlbums(term) {
-    //const url = new URL("https://api.spotify.com/v1/search");
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL("https://api.spotify.com/v1/search");
     url.searchParams.append("type", "album");
     url.searchParams.append("q", term);
 
@@ -19,15 +18,13 @@ export default class SpotifyService {
   }
 
   getAlbumById(id) {
-    //const url = new URL(`https://api.spotify.com/v1/albums/${id}`);
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL(`https://api.spotify.com/v1/albums/${id}`);
 
     return fetch(url, { headers: this.headers }).then((res) => res.json());
   }
 
   getAlbumTracks(id) {
-    //const url = new URL(`https://api.spotify.com/v1/albums/${id}/tracks`);
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL(`https://api.spotify.com/v1/albums/${id}/tracks`);
 
     return fetch(url, { headers: this.headers })
       .then((res) => res.json())
@@ -35,26 +32,23 @@ export default class SpotifyService {
   }
 
   getArtists(search) {
-    //const url = new URL("https://api.spotify.com/v1/search");
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL("https://api.spotify.com/v1/search");
     url.searchParams.append("type", "artist");
     url.searchParams.append("q", search);
 
     return fetch(url, { headers: this.headers })
       .then((res) => res.json())
-      .then((data) => data?.albums?.items);
+      .then((data) => data?.artists?.items);
   }
 
   getArtistById(id) {
-    //const url = new URL(`https://api.spotify.com/v1/artists/${id}`);
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL(`https://api.spotify.com/v1/artists/${id}`);
 
     return fetch(url, { headers: this.headers }).then((res) => res.json());
   }
 
   getArtistAlbums(id) {
-    //const url = new URL(`https://api.spotify.com/v1/artists/${id}/albums`);
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL(`https://api.spotify.com/v1/artists/${id}/albums`);
 
     return fetch(url, { headers: this.headers })
       .then((res) => res.json())
@@ -62,8 +56,7 @@ export default class SpotifyService {
   }
 
   getTracks(search) {
-    //const url = new URL("https://api.spotify.com/v1/search");
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL("https://api.spotify.com/v1/search");
     url.searchParams.append("type", "track");
     url.searchParams.append("q", search);
 
@@ -73,8 +66,7 @@ export default class SpotifyService {
   }
 
   getTrackById(id) {
-    //const url = new URL(`https://api.spotify.com/v1/tracks/${id}`);
-    const url = new URL("https://httpbin.org/get");
+    const url = new URL(`https://api.spotify.com/v1/tracks/${id}`);
 
     return fetch(url, { headers: this.headers }).then((res) => res.json());
   }
