@@ -2,11 +2,14 @@ import React from "react";
 
 import { AuthenticationContextProvider } from "./contexts/AuthenticationContext";
 import { SearchContextProvider } from "./contexts/SearchContext";
+import { FavoriteContextProvider } from "./contexts/FavoriteContext";
 
 export default function Providers({ children }) {
   return (
     <AuthenticationContextProvider>
-      <SearchContextProvider>{children}</SearchContextProvider>
+      <SearchContextProvider>
+        <FavoriteContextProvider>{children}</FavoriteContextProvider>
+      </SearchContextProvider>
     </AuthenticationContextProvider>
   );
 }
