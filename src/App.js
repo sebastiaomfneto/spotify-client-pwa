@@ -10,12 +10,12 @@ import "./App.scss";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 
-import Signin from "./containers/Signin";
-import ArtistItem from "./containers/ArtistItem";
-import ArtistList from "./containers/ArtistList";
-import AlbumItem from "./containers/AlbumItem";
-import AlbumList from "./containers/AlbumList";
-import TrackList from "./containers/TrackList";
+import Signin from "./pages/Signin";
+import ArtistItem from "./pages/ArtistItem";
+import ArtistList from "./pages/ArtistList";
+import AlbumItem from "./pages/AlbumItem";
+import AlbumList from "./pages/AlbumList";
+import TrackList from "./pages/TrackList";
 
 export default function App() {
   return (
