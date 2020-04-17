@@ -1,5 +1,5 @@
 export function getItem(key) {
-  const content = sessionStorage.getItem(key);
+  const content = localStorage.getItem(key);
 
   return JSON.parse(content);
 }
@@ -7,5 +7,5 @@ export function getItem(key) {
 export function setItem(key, value) {
   const content = JSON.stringify(value);
 
-  return sessionStorage.setItem(key, content);
+  return localStorage.setItem(key, content);
 }
