@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Table from "../components/Table";
+import FavoriteButton from "../components/FavoriteButton";
 
 import { buildImageSrc, buildArtist, buildAvailability } from "../helpers";
 
@@ -10,7 +11,9 @@ export default function AlbumTable({ albums = [] }) {
     <Table columns={["", "Image", "Name", "Artist", "Availability"]}>
       {albums.map((album) => (
         <tr key={album.id}>
-          <td></td>
+          <td>
+            <FavoriteButton id={album.id} />
+          </td>
           <td>
             <img
               src={buildImageSrc(album.images)}

@@ -1,0 +1,18 @@
+button {
+  display: block;
+  clear: both;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  svg {
+    color: #fff;
+  }
+
+  &.favorited {
+    svg {
+      color: #ff0000;
+    }
+  }
+}

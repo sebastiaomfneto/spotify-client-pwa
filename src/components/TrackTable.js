@@ -1,6 +1,7 @@
 import React from "react";
 
 import Table from "../components/Table";
+import FavoriteButton from "../components/FavoriteButton";
 
 import { buildImageSrc, buildArtist, buildDuration } from "../helpers";
 
@@ -9,7 +10,9 @@ export default function TrackTable({ album, tracks = [] }) {
     <Table columns={["", "Image", "Name", "Artist", "Album", "Duration"]}>
       {tracks.map((track) => (
         <tr key={track.id}>
-          <td></td>
+          <td>
+            <FavoriteButton id={track.id} />
+          </td>
           <td>
             <img
               src={buildImageSrc(track.album?.images ?? album.images)}
