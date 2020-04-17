@@ -19,7 +19,7 @@ export default function FavoriteButton({ id }) {
     } else {
       setFavorites(favorites.filter((f) => f !== id));
     }
-  }, [isfavorited]);
+  }, [isfavorited, id, favorites, setFavorites]);
 
   return (
     <button
