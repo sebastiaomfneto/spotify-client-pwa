@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import TrackTable from "../components/TrackTable";
 
-import { getTracks } from "../services/SpotifyService";
+import SpotifyService from "../services/SpotifyService";
 
 export default function TrackList() {
   const [loading, setLoading] = useState(true);
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    getTracks()
+    new SpotifyService()
+      .getTracks()
       .then((tracks) => setTracks(tracks))
       .finally(() => setLoading(false));
   }, []);

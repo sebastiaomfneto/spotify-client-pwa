@@ -6,7 +6,7 @@ import { buildImageSrc } from "../helpers";
 import Layout from "../components/Layout";
 import AlbumTable from "../components/AlbumTable";
 
-import { getArtistAlbums } from "../services/SpotifyService";
+import SpotifyService from "../services/SpotifyService";
 
 export default function ArtistItem() {
   const {
@@ -15,7 +15,9 @@ export default function ArtistItem() {
 
   const [albums, setAlbumns] = useState([]);
 
-  getArtistAlbums(artist.id).then((albums) => setAlbumns(albums));
+  new SpotifyService()
+    .getArtistAlbums(artist.id)
+    .then((albums) => setAlbumns(albums));
 
   return (
     <Layout

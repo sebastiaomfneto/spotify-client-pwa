@@ -6,7 +6,7 @@ import { buildImageSrc } from "../helpers";
 import Layout from "../components/Layout";
 import TrackTable from "../components/TrackTable";
 
-import { getAlbumTracks } from "../services/SpotifyService";
+import SpotifyService from "../services/SpotifyService";
 
 export default function AlbumItem() {
   const {
@@ -15,7 +15,9 @@ export default function AlbumItem() {
 
   const [tracks, setTracks] = useState([]);
 
-  getAlbumTracks(album.id).then((tracks) => setTracks(tracks));
+  new SpotifyService()
+    .getAlbumTracks(album.id)
+    .then((tracks) => setTracks(tracks));
 
   return (
     <Layout

@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import AlbumTable from "../components/AlbumTable";
 
-import { getAlbums } from "../services/SpotifyService";
+import SpotifyService from "../services/SpotifyService";
 
 export default function AlbumList() {
   const [loading, setLoading] = useState(true);
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    getAlbums()
+    new SpotifyService()
+      .getAlbums()
       .then((albums) => setAlbums(albums))
       .finally(() => setLoading(false));
   }, []);

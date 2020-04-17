@@ -1,83 +1,88 @@
-const headers = new Headers();
-headers.append("Accept", "application/json");
+export default class SpotifyService {
+  headers = new Headers();
 
-export function getAlbums(term) {
-  //const url = new URL("https://api.spotify.com/v1/search");
-  const url = new URL("https://httpbin.org/get");
-  url.searchParams.append("type", "album");
+  constructor() {
+    this.headers.append("Content-Type", "application/json");
+    this.headers.append("Accept", "application/json");
+  }
 
-  if (term) {
+  getAlbums(term) {
+    //const url = new URL("https://api.spotify.com/v1/search");
+    const url = new URL("https://httpbin.org/get");
+    url.searchParams.append("type", "album");
     url.searchParams.append("q", term);
+
+    return fetch(url, { headers: this.headers })
+      .then((res) => res.json())
+      .then((data) => data?.albums?.items);
   }
 
-  return fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data?.albums?.items);
-}
+  getAlbumById(id) {
+    //const url = new URL(`https://api.spotify.com/v1/albums/${id}`);
+    const url = new URL("https://httpbin.org/get");
 
-export function getAlbumById(id) {
-  //const url = new URL(`https://api.spotify.com/v1/albums/${id}`);
-  const url = new URL("https://httpbin.org/get");
+    return fetch(url, { headers: this.headers }).then((res) => res.json());
+  }
 
-  return fetch(url, { headers }).then((res) => res.json());
-}
+  getAlbumTracks(id) {
+    //const url = new URL(`https://api.spotify.com/v1/albums/${id}/tracks`);
+    const url = new URL("https://httpbin.org/get");
 
-export function getAlbumTracks(id) {
-  //const url = new URL(`https://api.spotify.com/v1/albums/${id}/tracks`);
-  const url = new URL("https://httpbin.org/get");
+    return fetch(url, { headers: this.headers })
+      .then((res) => res.json())
+      .then((data) => data?.items);
+  }
 
-  return fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data?.items);
-}
-
-export function getArtists(search) {
-  //const url = new URL("https://api.spotify.com/v1/search");
-  const url = new URL("https://httpbin.org/get");
-  url.searchParams.append("type", "artist");
-
-  if (search) {
+  getArtists(search) {
+    //const url = new URL("https://api.spotify.com/v1/search");
+    const url = new URL("https://httpbin.org/get");
+    url.searchParams.append("type", "artist");
     url.searchParams.append("q", search);
+
+    return fetch(url, { headers: this.headers })
+      .then((res) => res.json())
+      .then((data) => data?.albums?.items);
   }
 
-  return fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data?.albums?.items);
-}
+  getArtistById(id) {
+    //const url = new URL(`https://api.spotify.com/v1/artists/${id}`);
+    const url = new URL("https://httpbin.org/get");
 
-export function getArtistById(id) {
-  //const url = new URL(`https://api.spotify.com/v1/artists/${id}`);
-  const url = new URL("https://httpbin.org/get");
+    return fetch(url, { headers: this.headers }).then((res) => res.json());
+  }
 
-  return fetch(url, { headers }).then((res) => res.json());
-}
+  getArtistAlbums(id) {
+    //const url = new URL(`https://api.spotify.com/v1/artists/${id}/albums`);
+    const url = new URL("https://httpbin.org/get");
 
-export function getArtistAlbums(id) {
-  //const url = new URL(`https://api.spotify.com/v1/artists/${id}/albums`);
-  const url = new URL("https://httpbin.org/get");
+    return fetch(url, { headers: this.headers })
+      .then((res) => res.json())
+      .then((data) => data.items);
+  }
 
-  return fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data.items);
-}
-
-export function getTracks(search) {
-  //const url = new URL("https://api.spotify.com/v1/search");
-  const url = new URL("https://httpbin.org/get");
-  url.searchParams.append("type", "track");
-
-  if (search) {
+  getTracks(search) {
+    //const url = new URL("https://api.spotify.com/v1/search");
+    const url = new URL("https://httpbin.org/get");
+    url.searchParams.append("type", "track");
     url.searchParams.append("q", search);
+
+    return fetch(url, { headers: this.headers })
+      .then((res) => res.json())
+      .then((data) => data?.tracks?.items);
   }
 
-  return fetch(url, { headers })
-    .then((res) => res.json())
-    .then((data) => data?.tracks?.items);
-}
+  getTrackById(id) {
+    //const url = new URL(`https://api.spotify.com/v1/tracks/${id}`);
+    const url = new URL("https://httpbin.org/get");
 
-export function getTrackById(id) {
-  //const url = new URL(`https://api.spotify.com/v1/tracks/${id}`);
-  const url = new URL("https://httpbin.org/get");
+    return fetch(url, { headers: this.headers }).then((res) => res.json());
+  }
 
-  return fetch(url, { headers }).then((res) => res.json());
+  _getAuthorizationToken() {
+    const token = getItem("token");
+
+    if (token) {
+      return `${token.token_type} ${token.access_token}`;
+    }
+  }
 }
