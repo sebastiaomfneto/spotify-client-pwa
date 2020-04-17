@@ -9,10 +9,11 @@ export default AuthenticationContext;
 export function AuthenticationContextProvider({ children }) {
   const initialToken = getItem("token");
   const [token, setToken] = useState(initialToken);
-  const [isAuthenticated] = useState(!!initialToken);
+  const [isAuthenticated, setIsAuthenticated] = useState(!!initialToken);
 
   useEffect(() => {
     setItem("token", token);
+    setIsAuthenticated(!!token);
   }, [token]);
 
   return (
