@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { getItem, setItem } from "../services/StorageService";
 
-const FavoriteContext = React.createContext();
-
-export default FavoriteContext;
+export const FavoriteContext = React.createContext();
 
 export function FavoriteContextProvider({ children }) {
   const initialFavorites = getItem("favorites");

@@ -3,10 +3,10 @@ import { useLocation, useParams } from "react-router-dom";
 
 import { buildImageSrc } from "../helpers";
 
-import Layout from "../components/Layout";
-import TrackTable from "../components/TrackTable";
+import { Layout } from "../components/Layout";
+import { TrackTable } from "../components/Table";
 
-import SpotifyService from "../services/SpotifyService";
+import { SpotifyService } from "../services/SpotifyService";
 
 export default function AlbumItem() {
   const {

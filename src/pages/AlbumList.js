@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import Layout from "../components/Layout";
-import AlbumTable from "../components/AlbumTable";
+import { Layout } from "../components/Layout";
+import { AlbumTable } from "../components/Table";
 
-import SearchContext from "../contexts/SearchContext";
+import { SearchContext } from "../contexts/SearchContext";
 
-import SpotifyService from "../services/SpotifyService";
+import { SpotifyService } from "../services/SpotifyService";
 
 export default function AlbumList() {
   const { search } = useContext(SearchContext);

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Switch, Redirect, Route } from "react-router-dom";
 
-import AuthenticationContext from "./contexts/AuthenticationContext";
+import { AuthenticationContext } from "./contexts/AuthenticationContext";
 
 import Signin from "./pages/Signin";
 import ArtistItem from "./pages/ArtistItem";
@@ -27,7 +27,7 @@ function AuthenticatedRoute({ children, ...params }) {
   );
 }
 
-export default function Routes() {
+export function Routes() {
   return (
     <Switch>
       <Redirect exact from="/" to="/artists" />

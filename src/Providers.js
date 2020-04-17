@@ -4,7 +4,7 @@ import { AuthenticationContextProvider } from "./contexts/AuthenticationContext"
 import { SearchContextProvider } from "./contexts/SearchContext";
 import { FavoriteContextProvider } from "./contexts/FavoriteContext";
 
-export default function Providers({ children }) {
+export function Providers({ children }) {
   return (
     <AuthenticationContextProvider>
       <SearchContextProvider>

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Table from "../components/Table";
-import FavoriteButton from "../components/FavoriteButton";
+import { Table } from "./Table";
+import { FavoriteButton } from "../FavoriteButton";
 
-import { buildImageSrc } from "../helpers";
+import { buildImageSrc } from "../../helpers";
 
-export function buildArtist(artists = []) {
+function buildArtist(artists = []) {
   if (artists.length > 1) {
     return "Various artists";
   }
@@ -14,13 +14,13 @@ export function buildArtist(artists = []) {
   return artists[0]?.name;
 }
 
-export function buildAvailability(availableMarkets = []) {
+function buildAvailability(availableMarkets = []) {
   return availableMarkets.includes("BR")
     ? "Available in Brazil"
     : "Unavailable in Brazil";
 }
 
-export default function AlbumTable({ albums = [] }) {
+export function AlbumTable({ albums = [] }) {
   return (
     <Table columns={["", "Image", "Name", "Artist", "Availability"]}>
       {albums.map((album) => (

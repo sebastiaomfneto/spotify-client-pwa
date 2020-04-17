@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./Header.scss";
-import SearchContext from "../contexts/SearchContext";
+
+import { SearchContext } from "../../contexts/SearchContext";
 
 let timeoutId;
 function debounce(fn, timeout) {
@@ -14,7 +15,7 @@ function debounce(fn, timeout) {
   timeoutId = setTimeout(fn, timeout);
 }
 
-export default function Header() {
+export function Header() {
   const { search, setSearch } = useContext(SearchContext);
   const [term, setTerm] = useState(search);
 

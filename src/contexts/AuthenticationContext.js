@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { getItem, setItem } from "../services/StorageService";
 
-const AuthenticationContext = React.createContext();
-
-export default AuthenticationContext;
+export const AuthenticationContext = React.createContext();
 
 export function AuthenticationContextProvider({ children }) {
   const initialToken = getItem("token");

@@ -7,15 +7,19 @@ const NavLinkWithActiveClassName = (props) => (
   <NavLink activeClassName="active" {...props} />
 );
 
-export default function Nav() {
+export function Nav() {
   return (
     <nav className="Nav">
       <h2>Browse</h2>
       <NavLinkWithActiveClassName to="/artists">
         Artists
       </NavLinkWithActiveClassName>
-      <NavLinkWithActiveClassName to="/albums">Albums</NavLinkWithActiveClassName>
-      <NavLinkWithActiveClassName to="/tracks">Tracks</NavLinkWithActiveClassName>
+      <NavLinkWithActiveClassName to="/albums">
+        Albums
+      </NavLinkWithActiveClassName>
+      <NavLinkWithActiveClassName to="/tracks">
+        Tracks
+      </NavLinkWithActiveClassName>
     </nav>
   );
 }

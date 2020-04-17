@@ -1,6 +1,6 @@
 import { getItem } from "./StorageService";
 
-export default class SpotifyService {
+export class SpotifyService {
   headers = new Headers({
     Authorization: this._getAuthorizationToken(),
     Accept: "application/json",

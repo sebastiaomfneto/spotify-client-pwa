@@ -2,7 +2,7 @@ import React, { Children } from "react";
 
 import "./Table.scss";
 
-export default function Table({ columns = [], children }) {
+export function Table({ columns = [], children }) {
   return (
     <div className="Table">
       <table>

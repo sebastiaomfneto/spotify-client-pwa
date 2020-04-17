@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Table from "../components/Table";
-import FavoriteButton from "../components/FavoriteButton";
+import { Table } from "./Table";
+import { FavoriteButton } from "../FavoriteButton";
 
-import { buildImageSrc } from "../helpers";
+import { buildImageSrc } from "../../helpers";
 
-export function buildGenresList(genres = []) {
+function buildGenresList(genres = []) {
   return genres.join(", ");
 }
 
-export function buildPopularity(followers = 0) {
+function buildPopularity(followers = 0) {
   switch (true) {
     case followers > 80:
       return "Hot";
@@ -25,7 +25,7 @@ export function buildPopularity(followers = 0) {
   }
 }
 
-export default function ArtistTable({ artists = [] }) {
+export function ArtistTable({ artists = [] }) {
   return (
     <Table columns={["", "Image", "Name", "Genres", "Popularity"]}>
       {artists.map((artist) => (

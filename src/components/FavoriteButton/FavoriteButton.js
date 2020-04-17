@@ -4,9 +4,9 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 import "./FavoriteButton.scss";
 
-import FavoriteContext from "../contexts/FavoriteContext";
+import { FavoriteContext } from "../../contexts/FavoriteContext";
 
-export default function FavoriteButton({ id }) {
+export function FavoriteButton({ id }) {
   const { favorites, setFavorites } = useContext(FavoriteContext);
 
   const [isfavorited, setIsFavorited] = useState(

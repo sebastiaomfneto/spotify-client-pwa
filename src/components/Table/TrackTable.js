@@ -1,15 +1,15 @@
 import React from "react";
 
-import Table from "../components/Table";
-import FavoriteButton from "../components/FavoriteButton";
+import { Table } from "./Table";
+import { FavoriteButton } from "../FavoriteButton";
 
-import { buildImageSrc } from "../helpers";
+import { buildImageSrc } from "../../helpers";
 
-export function buildArtist(artists = []) {
+function buildArtist(artists = []) {
   return artists.map((a) => a.name).join(", ");
 }
 
-export function buildDuration(ms = 0) {
+function buildDuration(ms = 0) {
   const min = (ms / 1000 / 60) << 0;
   let sec = (ms / 1000) % 60 << 0;
 
@@ -20,7 +20,7 @@ export function buildDuration(ms = 0) {
   return `${min}:${sec}`;
 }
 
-export default function TrackTable({ album, tracks = [] }) {
+export function TrackTable({ album, tracks = [] }) {
   return (
     <Table columns={["", "Album Image", "Name", "Artist", "Album", "Duration"]}>
       {tracks.map((track) => (

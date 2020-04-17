@@ -4,7 +4,7 @@ import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 import "./Loading.scss";
 
-export default function Loading({ loading }) {
+export function Loading({ loading }) {
   if (loading) {
     return (
       <div className="Loading">
