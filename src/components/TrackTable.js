@@ -13,7 +13,7 @@ export default function TrackTable({ tracks = [] }) {
           <td></td>
           <td>
             <img
-              src={buildImageSrc(track.images)}
+              src={buildImageSrc(track.album.images)}
               alt="track"
               width="20px"
               height="20px"
