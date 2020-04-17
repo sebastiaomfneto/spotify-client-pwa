@@ -10,7 +10,7 @@ const NavLinkWithActiveClassName = (props) => (
 export function Nav() {
   return (
     <nav className="Nav">
-      <h2>Browse</h2>
+      <h2 data-testid="title">Browse</h2>
       <NavLinkWithActiveClassName to="/artists">
         Artists
       </NavLinkWithActiveClassName>
