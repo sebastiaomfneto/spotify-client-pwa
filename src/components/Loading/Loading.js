@@ -7,7 +7,7 @@ import "./Loading.scss";
 export function Loading({ loading }) {
   if (loading) {
     return (
-      <div className="Loading" data-testid="loading">
+      <div className="Loading">
         <FontAwesomeIcon icon={faCircleNotch} size="3x" spin />
       </div>
     );
