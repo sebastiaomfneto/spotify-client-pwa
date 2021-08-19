@@ -32,7 +32,7 @@
     }
     &.active {
       &::before {
-        content: "";
+        content: '';
         position: relative;
         left: -1.125rem;
         border-left: 0.15rem solid #1db954;

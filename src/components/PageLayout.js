@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { Loading } from "../Loading";
+import { Loading } from './Loading';
 
-import "./Layout.scss";
+import './PageLayout.scss';
 
-export function Layout({ imageSrc, title, subtitle, children, loading }) {
+export function PageLayout({ imageSrc, title, subtitle, children, loading }) {
   return (
-    <div className="Layout">
+    <div className="PageLayout">
       <div>
         {imageSrc ? (
           <img src={imageSrc} alt="container" width="150px" height="150px" />

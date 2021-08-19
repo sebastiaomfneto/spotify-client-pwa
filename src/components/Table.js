@@ -1,6 +1,6 @@
-import React, { Children } from "react";
+import React, { Children } from 'react';
 
-import "./Table.scss";
+import './Table.scss';
 
 export function Table({ columns = [], children }) {
   return (

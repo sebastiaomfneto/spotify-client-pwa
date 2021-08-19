@@ -1,0 +1,29 @@
+.AppLayout {
+  position: relative;
+
+  > .nav-section {
+    @media (min-width: 768px) {
+      position: fixed;
+      width: 11.25rem;
+    }
+  }
+
+  > main {
+    position: relative;
+    > .container {
+      position: relative;
+      top: 1rem;
+      margin: 0 0 0.25rem;
+      padding: 1.25rem;
+    }
+
+    @media (min-width: 678px) {
+      left: 12.5rem;
+      width: calc(100% - 12.5rem);
+      > .container {
+        top: 3.15rem;
+        padding-bottom: 6.25rem;
+      }
+    }
+  }
+}
