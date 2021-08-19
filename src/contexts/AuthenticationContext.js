@@ -1,25 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer, useMemo } from 'react';
 
-import { getItem, setItem } from "../services/StorageService";
+import * as StorageService from '../services/StorageService';
+import { NotImplementedError } from '../helpers';
+import { usePersistedStorage } from '../hooks';
 
 export const AuthenticationContext = React.createContext();
 
-export function AuthenticationContextProvider({ children }) {
-  const initialToken = getItem("token");
-  const [token, setToken] = useState(initialToken);
-  const [isAuthenticated, setIsAuthenticated] = useState(!!initialToken);
+export const SET_TOKEN = 'SET_TOKEN';
 
-  useEffect(() => {
-    setItem("token", token);
-    setIsAuthenticated(!!token);
-  }, [token]);
+const initialState = StorageService.getItem('token');
+
+function reducer(_state, action) {
+  switch (action.type) {
+    case SET_TOKEN:
+      return action.payload;
+    default:
+      throw new NotImplementedError();
+  }
+}
+
+export function AuthenticationContextProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  usePersistedStorage('token', state);
+
+  const isAuthenticated = useMemo(() => Boolean(state), [state]);
 
   return (
     <AuthenticationContext.Provider
       value={{
-        token,
+        state,
+        dispatch,
         isAuthenticated,
-        setToken,
       }}
     >
       {children}
