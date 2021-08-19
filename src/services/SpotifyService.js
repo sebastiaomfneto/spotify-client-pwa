@@ -1,81 +1,117 @@
-import { getItem } from "./StorageService";
+import Axios from 'axios';
 
-export class SpotifyService {
-  headers = new Headers({
-    Authorization: this._getAuthorizationToken(),
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  });
+import * as StorageService from './StorageService';
 
-  getAlbums(term) {
-    const url = new URL("https://api.spotify.com/v1/search");
-    url.searchParams.append("type", "album");
-    url.searchParams.append("q", term);
+const axios = Axios.create({
+  baseURL: 'https://api.spotify.com/v1',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+});
 
-    return fetch(url, { headers: this.headers })
-      .then((res) => res.json())
-      .then((data) => data?.albums?.items);
+axios.interceptors.request.use((req) => {
+  const token = StorageService.getItem('token');
+
+  if (token) {
+    req.headers['Authorization'] = `${token.token_type} ${token.access_token}`;
   }
 
-  getAlbumById(id) {
-    const url = new URL(`https://api.spotify.com/v1/albums/${id}`);
+  return req;
+});
 
-    return fetch(url, { headers: this.headers }).then((res) => res.json());
+axios.interceptors.response.use(undefined, (error) => {
+  if (error.response.status === 401) {
+    StorageService.removeItem('token');
+
+    window.location.href = '/signin';
   }
 
-  getAlbumTracks(id) {
-    const url = new URL(`https://api.spotify.com/v1/albums/${id}/tracks`);
+  return Promise.reject(error);
+});
 
-    return fetch(url, { headers: this.headers })
-      .then((res) => res.json())
-      .then((data) => data?.items);
-  }
+/**
+ * Get albums by search string
+ *
+ * @param {string} search
+ * @returns {Promise<object[]>}
+ */
+export async function getAlbums(search) {
+  return axios
+    .get('/search', { params: { type: 'album', q: search } })
+    .then((res) => res.data?.albums?.items);
+}
 
-  getArtists(search) {
-    const url = new URL("https://api.spotify.com/v1/search");
-    url.searchParams.append("type", "artist");
-    url.searchParams.append("q", search);
+/**
+ * Get album by id
+ *
+ * @param {string} id
+ * @returns {Promise<object | undefined>}
+ */
+export async function getAlbumById(id) {
+  return axios.get(`albums/${id}`).then((res) => res.data);
+}
 
-    return fetch(url, { headers: this.headers })
-      .then((res) => res.json())
-      .then((data) => data?.artists?.items);
-  }
+/**
+ * Get tracks from album
+ *
+ * @param {string} albumId
+ * @returns {Promise<object[]>}
+ */
+export async function getAlbumTracks(albumId) {
+  return axios.get(`albums/${albumId}/tracks`).then((res) => res.data?.items);
+}
 
-  getArtistById(id) {
-    const url = new URL(`https://api.spotify.com/v1/artists/${id}`);
+/**
+ * Get artists by search string
+ *
+ * @param {string} search
+ * @returns {Promise<object[]>}
+ */
+export async function getArtists(search) {
+  return axios
+    .get('search', { params: { type: 'artist', q: search } })
+    .then((res) => res.data?.artists?.items);
+}
 
-    return fetch(url, { headers: this.headers }).then((res) => res.json());
-  }
+/**
+ * Get artist by id
+ *
+ * @param {string} id
+ * @returns {Promise<object | undefined>}
+ */
+export async function getArtistById(id) {
+  return axios.get(`artists/${id}`).then((res) => res.data);
+}
 
-  getArtistAlbums(id) {
-    const url = new URL(`https://api.spotify.com/v1/artists/${id}/albums`);
+/**
+ * Get albums from artist
+ *
+ * @param {string} artistId
+ * @returns {Promise<object[]>}
+ */
+export async function getArtistAlbums(artistId) {
+  return axios.get(`artists/${artistId}/albums`).then((res) => res.data.items);
+}
 
-    return fetch(url, { headers: this.headers })
-      .then((res) => res.json())
-      .then((data) => data.items);
-  }
+/**
+ * Get tracks by search string
+ *
+ * @param {string} search
+ * @returns {Promise<object[]>}
+ */
+export async function getTracks(search) {
+  return axios
+    .get('/search', { params: { type: 'track', q: search } })
+    .then((res) => res.data?.tracks?.items);
+}
 
-  getTracks(search) {
-    const url = new URL("https://api.spotify.com/v1/search");
-    url.searchParams.append("type", "track");
-    url.searchParams.append("q", search);
-
-    return fetch(url, { headers: this.headers })
-      .then((res) => res.json())
-      .then((data) => data?.tracks?.items);
-  }
-
-  getTrackById(id) {
-    const url = new URL(`https://api.spotify.com/v1/tracks/${id}`);
-
-    return fetch(url, { headers: this.headers }).then((res) => res.json());
-  }
-
-  _getAuthorizationToken() {
-    const token = getItem("token");
-
-    if (token) {
-      return `${token.token_type} ${token.access_token}`;
-    }
-  }
+/**
+ * Get track by id
+ *
+ * @param {string} id
+ * @returns {Promise<object | undefined>}
+ */
+export async function getTrackById(id) {
+  return axios.get(`tracks/${id}`).then((res) => res.data);
 }
