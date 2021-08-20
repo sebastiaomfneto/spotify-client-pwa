@@ -1,8 +1,7 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 import * as StorageService from '../services/StorageService';
 import { NotImplementedError } from '../helpers';
-import { usePersistedStorage } from '../hooks'
 
 export const FavoriteContext = React.createContext();
 
@@ -25,7 +24,9 @@ function reducer(state, action) {
 export function FavoriteContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  usePersistedStorage('favorites', state)
+  useEffect(() => {
+    StorageService.setItem('favorites', state);
+  }, [state]);
 
   return (
     <FavoriteContext.Provider

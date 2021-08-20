@@ -1,8 +1,7 @@
-import React, { useReducer, useMemo } from 'react';
+import React, { useReducer, useMemo, useEffect } from 'react';
 
 import * as StorageService from '../services/StorageService';
 import { NotImplementedError } from '../helpers';
-import { usePersistedStorage } from '../hooks';
 
 export const AuthenticationContext = React.createContext();
 
@@ -22,7 +21,9 @@ function reducer(_state, action) {
 export function AuthenticationContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  usePersistedStorage('token', state);
+  useEffect(() => {
+    StorageService.setItem('token', state);
+  }, [state]);
 
   const isAuthenticated = useMemo(() => Boolean(state), [state]);
 
