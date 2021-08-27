@@ -5,24 +5,27 @@ import { NotImplementedError } from '../helpers';
 
 export const FavoriteContext = React.createContext();
 
-export const ADD_FAVORITE = 'ADD_FAVORITE';
-export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
+export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE';
 
-const initialState = StorageService.getItem('favorites') ?? [];
+function initializer(initialState) {
+  return StorageService.getItem('favorites') ?? initialState;
+}
 
 function reducer(state, action) {
   switch (action.type) {
-    case ADD_FAVORITE:
+    case TOGGLE_FAVORITE:
+      const isfavorited = state.some((f) => f === action.payload);
+      if (isfavorited) {
+        return state.filter((favorite) => favorite !== action.payload);
+      }
       return state.concat(action.payload);
-    case REMOVE_FAVORITE:
-      return state.filter((favorite) => favorite !== action.payload);
     default:
       throw new NotImplementedError();
   }
 }
 
-export function FavoriteContextProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+export function FavoriteContextProvider({ initialState = [], children }) {
+  const [state, dispatch] = useReducer(reducer, initialState, initializer);
 
   useEffect(() => {
     StorageService.setItem('favorites', state);
