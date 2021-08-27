@@ -25,6 +25,7 @@ export function Header() {
             placeholder="Search for artists, albums and tracks"
             value={term}
             onChange={(e) => setTerm(e.target.value)}
+            data-testid="Header-search-input"
           />
         </label>
       </form>
