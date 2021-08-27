@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Table, FavoriteButton } from '../../../components';
 import { buildImageSrc } from '../../../helpers';
-import { buildPopularity, buildGenresList } from '../helpers';
+import { buildPopularity } from '../helpers';
 
 export function ArtistTable({ artists = [] }) {
   return (
@@ -31,7 +31,7 @@ export function ArtistTable({ artists = [] }) {
               {artist.name}
             </Link>
           </td>
-          <td>{buildGenresList(artist.genres)}</td>
+          <td>{artist.genres.join(', ')}</td>
           <td>{buildPopularity(artist.followers.total)}</td>
         </tr>
       ))}
