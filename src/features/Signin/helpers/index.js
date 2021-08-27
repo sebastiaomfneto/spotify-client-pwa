@@ -17,8 +17,8 @@ export function redirectToAuthenticateOnSpotify() {
  */
 export function getTokenFromHash(hash = '') {
   return hash
-    .replace(/#/i, '')
-    .split(/&/i)
-    .map((i) => i.split(/=/i))
+    .replace(/^#/, '')
+    .split(/&/)
+    .map((i) => i.split(/=/))
     .reduce((ag, [k, v]) => ({ ...ag, [k]: v }), {});
 }
