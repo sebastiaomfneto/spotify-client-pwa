@@ -7,7 +7,9 @@ export const AuthenticationContext = React.createContext();
 
 export const SET_TOKEN = 'SET_TOKEN';
 
-const initialState = StorageService.getItem('token');
+function initializer(initialState) {
+  return StorageService.getItem('token') ?? initialState;
+}
 
 function reducer(_state, action) {
   switch (action.type) {
@@ -18,8 +20,11 @@ function reducer(_state, action) {
   }
 }
 
-export function AuthenticationContextProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+export function AuthenticationContextProvider({
+  initialState = undefined,
+  children,
+}) {
+  const [state, dispatch] = useReducer(reducer, initialState, initializer);
 
   useEffect(() => {
     StorageService.setItem('token', state);
