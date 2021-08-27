@@ -29,7 +29,10 @@ export function SigninPage() {
     <PageLayout title="Signin">
       <section className="Signin">
         <SpotifyLogo width="150px" height="150px" fill="#1db954" />
-        <button onClick={() => redirectToAuthenticateOnSpotify()}>
+        <button
+          onClick={() => redirectToAuthenticateOnSpotify()}
+          data-testid="SigninPage-signin-button"
+        >
           Sign In With Spotify
         </button>
       </section>
