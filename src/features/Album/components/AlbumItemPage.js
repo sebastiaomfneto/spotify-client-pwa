@@ -8,13 +8,11 @@ import { buildImageSrc } from '../../../helpers';
 import { TrackTable } from '../../../features/Track';
 
 export function AlbumItemPage() {
-  const {
-    state: { album },
-  } = useLocation();
+  const { state: { album } = {} } = useLocation();
 
   const { id } = useParams();
 
-  const { perform, data } = useAsync(SpotifyService.getAlbumTracks);
+  const { perform, data } = useAsync(SpotifyService.getAlbumTracks, []);
 
   useEffect(() => {
     perform(id);
@@ -22,9 +20,9 @@ export function AlbumItemPage() {
 
   return (
     <PageLayout
-      title={album.name}
+      title={album?.name}
       subtitle="Tracks"
-      imageSrc={buildImageSrc(album.images)}
+      imageSrc={buildImageSrc(album?.images)}
     >
       <TrackTable album={album} tracks={data} />
     </PageLayout>
