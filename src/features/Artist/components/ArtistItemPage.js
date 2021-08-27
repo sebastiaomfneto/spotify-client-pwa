@@ -9,12 +9,12 @@ import { AlbumTable } from '../../../features/Album';
 
 export function ArtistItemPage() {
   const {
-    state: { artist },
+    state: { artist } = {},
   } = useLocation();
 
   const { id } = useParams();
 
-  const { perform, data } = useAsync(SpotifyService.getArtistAlbums);
+  const { perform, data } = useAsync(SpotifyService.getArtistAlbums, []);
 
   useEffect(() => {
     perform(id);
@@ -22,9 +22,9 @@ export function ArtistItemPage() {
 
   return (
     <PageLayout
-      title={artist.name}
+      title={artist?.name}
       subtitle="Albums"
-      imageSrc={buildImageSrc(artist.images)}
+      imageSrc={buildImageSrc(artist?.images)}
     >
       <AlbumTable albums={data} />
     </PageLayout>
