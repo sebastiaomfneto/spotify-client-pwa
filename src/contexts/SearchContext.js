@@ -6,8 +6,6 @@ export const SearchContext = React.createContext();
 
 export const SET_SEARCH = 'SET_SEARCH';
 
-const initialState = '';
-
 function reducer(_state, action) {
   switch (action.type) {
     case SET_SEARCH:
@@ -17,7 +15,7 @@ function reducer(_state, action) {
   }
 }
 
-export function SearchContextProvider({ children }) {
+export function SearchContextProvider({ initialState = '', children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
