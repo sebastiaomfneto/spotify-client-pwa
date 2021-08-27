@@ -4,7 +4,7 @@ import { Loading } from './Loading';
 
 import './PageLayout.scss';
 
-export function PageLayout({ imageSrc, title, subtitle, children, loading }) {
+export function PageLayout({ imageSrc, title, subtitle, loading, children }) {
   return (
     <div className="PageLayout">
       <div>
