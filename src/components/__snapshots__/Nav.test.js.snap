@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Nav should match with snapshot 1`] = `
+<div>
+  <nav
+    class="Nav"
+  >
+    <h2>
+      Browse
+    </h2>
+    <a
+      href="/artists"
+    >
+      Artists
+    </a>
+    <a
+      href="/albums"
+    >
+      Albums
+    </a>
+    <a
+      href="/tracks"
+    >
+      Tracks
+    </a>
+  </nav>
+</div>
+`;
