@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Table should match with snapshot 1`] = `
+<div>
+  <div
+    class="Table"
+  >
+    <table>
+      <thead>
+        <tr>
+          <th>
+            TEST_COLUMN_1
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            TEST_ROW_1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            TEST_ROW_2
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
