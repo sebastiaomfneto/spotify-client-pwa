@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing AuthenticatedRoute should redirect /signin when unauthenticated 1`] = `
+<body>
+  <div>
+    <span>
+      SIGNIN
+    </span>
+  </div>
+</body>
+`;
+
+exports[`testing AuthenticatedRoute should render children when authenticated 1`] = `
+<body>
+  <div>
+    <span>
+      AUTHENTICATED
+    </span>
+  </div>
+</body>
+`;
