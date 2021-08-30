@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing SigninPage should render login button 1`] = `
+<body>
+  <div>
+    <div
+      class="PageLayout"
+    >
+      <div>
+        <h1>
+          Signin
+        </h1>
+      </div>
+      <section
+        class="Signin"
+      >
+        <svg
+          fill="#1db954"
+          height="150px"
+          width="150px"
+        >
+          spotify-logo.svg
+        </svg>
+        <button
+          data-testid="SigninPage-signin-button"
+        >
+          Sign In With Spotify
+        </button>
+      </section>
+    </div>
+  </div>
+</body>
+`;
