@@ -9,3 +9,6 @@ Object.defineProperty(window, 'localStorage', {
     removeItem: jest.fn(),
   },
 });
+
+export const waitForTimeout = (timeout) =>
+  new Promise((r) => setTimeout(r, timeout));
