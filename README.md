@@ -1,85 +1,60 @@
-# spotify-client-pwa
+# Spotify Client PWA
 
-##### Challenge
+An simple Spotify PWA client.
 
-Everyone loves music. So we'd like you to create a web app based on Spotify's API to retrive data about **Artists**, **Albums** or **Tracks**.
+> This repository originally was created for the challenge at [HiPlatform](https://github.com/HiPlatform)
 
-Based on user search choice and input on a search bar, you **must** retrieve a list containing the following info:
+## Acknowledgements
 
-- If Artist search is selected:
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Spotify API reference](https://beta.developer.spotify.com/documentation/web-api/reference/search/search/)
 
-- All arists matching the word searched, containing: Image, name, genres and popularity;
+## Screenshots
 
-- If Album search is selected:
+![App Screenshot](./docs/screenshot-1.png)
 
-- All albums matching the word searched, containing: Image, name, artist(s), and availability;
+---
 
-- If Track search is selected:
+![App Screenshot](./docs/screenshot-2.png)
 
-- All tracks matching the word searched, containing: Album Image, track name, artist name³, album name and track duration;
+---
 
-##### Details:
+![App Screenshot](./docs/screenshot-2.png)
 
-- Artists must display the **FIRST** image returned on search and **genres** separated by comma;
+## Run Locally
 
-- Artists popularity must be tagged within:
+Clone the project
 
-- Over 80: Hot;
+```bash
+  git clone https://github.com/sebastiaomfneto/spotify-client-pwa.git
+```
 
-- Between 60 and 79: Cool;
+Go to the project directory
 
-- Between 30 and 59: Regular;
+```bash
+  cd spotify-client-pwa
+```
 
-- Under 30: Underground
+Install dependencies
 
-- If a retrieved Album happens to have many Artists, display "Various artists".;
+```bash
+  npm install
+```
 
-- If a Track happens to have many Artists, display their names separated by comma;
+Start the server
 
-- Artists and Albums must be clickable, showing upon click:
+```bash
+  npm run start
+```
 
-- Artists: Latest 5 albums;
+## Running Tests
 
-- Albums: All of its tracks;
+To run tests, run the following command
 
-- A user can favorite Artists, Albums and Tracks;
+```bash
+  npm run test
+```
 
-#### Musts:
+## License
 
-Your code must follow these requirements:
-
-- Use React, Vue or Angular; (Consider that we are migrating our Front-End stack to use React)
-
-- Fully responsive;
-
-- ES6+;
-
-- Use a module bundler (Webpack, Parcel, Browserify, etc.);
-
-- Linted code;
-
-- CSS pre-processors or CSS-in-JS;
-
-#### Nice to Have:
-
-- State management framework (Redux, Vuex, ngrx);
-
-- Automated tests;
-
-- Add authentication to your WebApp;
-
-- Turn it into a PWA;
-
-- Data Persistence (Cookies, DOMStorage, IndexedDB);
-
-- Micro animations/Micro transitions following Material Design Motion guidelines;
-
-- Host it somewhere as a Live Demo;
-
-Browser Support: IE11+;
-
-You **can** use UI libs as Bootstrap, Foundation, Material-UI, etc.
-
-Design it as something you'd use ;)
-
-[Spotify API reference](https://beta.developer.spotify.com/documentation/web-api/reference/search/search/)
+[MIT](https://choosealicense.com/licenses/mit/)
